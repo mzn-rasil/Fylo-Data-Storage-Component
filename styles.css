@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gradient-color-start: hsl(6, 100%, 80%);
+    --gradient-color-end: hsl(335, 100%, 65%);
+
+    --pale-blue: hsl(243, 100%, 93%);
+    --grayish-blue: hsl(229, 7%, 55%);
+    --dark-blue: hsl(228, 56%, 26%);
+    --very-dark-blue: hsl(229, 57%, 11%);  
+
+    --ff-raleway: 'Raleway', sans-serif;
+}
+
+body {
+    font-size: 14px;
+    font-family: var(--ff-raleway);
+    height: 100vh;
+    background-image: url(images/bg-mobile.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    height: 400px;
+    width: 80%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.container>* {
+    background: var(--dark-blue);
+}
+
+.fylo-components {
+    padding: 3em 2.5em;
+    border-radius: 15px 100px 15px 15px;
+}
+
+.fylo-components>img {
+    margin-bottom: 2em;
+}
+
+.files-section {
+    display: flex;
+    gap: 1em;
+}
+
+.file {
+    padding: 0.6em 0.8em;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    background: var(--very-dark-blue);
+}
+
+.storage-component {
+    height: 150px;
+    border-radius: 15px;
+    padding: 2em 2.5em;
+    position: relative;
+}
+
+.storage-component>p {
+    color: var(--pale-blue);
+    margin-bottom: 1em;
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.storage-space {
+    width: 110%;
+    height: 18px;
+    border-radius: 10px;
+    background: var(--very-dark-blue);
+    transform: translate(-5%, 0);
+    position: relative;
+    margin-bottom: 0.5em;
+}
+
+.current-storage {
+    position: absolute;
+    width: 75%;
+    height: 12px;
+    top: 3px;
+    left: 2.5px;
+    background: linear-gradient(to right, var(--gradient-color-start), var(--gradient-color-end));
+    border-radius: 10px;
+}
+
+.end-stamp {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background: var(--pale-blue);
+    border-radius: 50%;
+    right: 2.5px;
+    top: 1.2px;
+}
+
+.storage-range {
+    width: 110%;
+    transform: translate(-5%, 0);
+    display: flex;
+    justify-content: space-between;
+    color: var(--pale-blue);
+}
+
+.storage-range>span {
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.storage-left {
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    background: white;
+    text-align: center;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.storage-left>h1 {
+    font-size: 2.5rem;
+    margin-right: 10px;
+}
+
+.storage-left>span {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--grayish-blue);
+    opacity: 0.8;
+}
+
+.triangle-cut {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        background-color: var(--very-dark-blue);
+        background-image: url(images/bg-desktop.png);
+        background-size: 100% 50%;
+        background-position-y:bottom;
+    }
+
+    .container {
+        flex-direction: row;
+        height: 220px;
+        min-width: 700px;
+        max-width: 900px;
+    }
+
+    .fylo-components {
+        width: 40%;
+        padding: 3em;
+    }
+
+    .fylo-components>img {
+        width: 150px;
+        height: auto;
+        margin-bottom: 3em;
+    }
+
+    .storage-component {
+        width: 60%;
+        height: 160px;
+        margin-top: auto;
+        padding: 3em 2em;
+    }
+
+    .storage-component>p {
+        margin-bottom: 1.5em;
+    }
+
+    .storage-space {
+        width: 100%;
+        transform: translate(5px, 0);
+    }
+
+    .storage-range {
+        width: 100%;
+        transform: translate(5px, 0);
+    }
+
+    .storage-left {
+        top: -20px;
+        left: 75%;
+        width: 170px;
+        height: 70px;
+        z-index: 0;
+        border-radius: 15px 15px 0px 15px;
+    }
+
+    .triangle-cut {
+        display: block;
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        border-top: 20px solid white;
+        border-left: 20px solid transparent;
+        right: 0;
+        bottom: -18px;
+        z-index: -1;
+    }
+}
